@@ -7,10 +7,10 @@ from typing import AnyStr
 import logging
 
 
-class ScrapSp500(Scrap):
+class ScrapNasdaq100(Scrap):
     def __init__(self):
-        self.url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-        self.logger = logging.getLogger("ScrapSp500")
+        self.url = "https://en.wikipedia.org/wiki/NASDAQ-100"
+        self.logger = logging.getLogger("Nasdaq100")
 
     def run(self) -> DataFrame:
         views: List = self.fetch(self.url)
@@ -18,11 +18,11 @@ class ScrapSp500(Scrap):
         print("SCRAPED: SP500")
         return output
 
-    def parse(self, text, **kwargs) -> DataFrame:
-        df = text[0]
+    def parse(self, views: List, **kwargs) -> DataFrame:
+        df = views[3]
 
-        df = df[['Symbol', 'GICS Sector', 'GICS Sub-Industry']].rename(
-            columns={'Symbol': 'symbol',
+        df = df[['Ticker', 'GICS Sector', 'GICS Sub-Industry']].rename(
+            columns={'Ticker': 'symbol',
                      'GICS Sector': 'sector',
                      'GICS Sub-Industry': 'sub_sector'})
 

@@ -7,3 +7,8 @@ dist/
 
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
+/venv/
+
+
+# credentials files
+mr_scrapper/jobs/zoopla_scrapper.client_secrets.json

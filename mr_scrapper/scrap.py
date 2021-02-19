@@ -13,6 +13,6 @@ class Scrap(ABC):
         raise NotImplementedError("how are you supposed to run a scrapping job without a valid URL, try again :-(")
 
     @abstractmethod
-    def parse(self, html, **kwargs):
+    def parse(self, data, **kwargs):
         raise NotImplementedError("so you have the html but you now need to create a parse method to mung data into " \
                                   "a form that makes sense, off you go.")

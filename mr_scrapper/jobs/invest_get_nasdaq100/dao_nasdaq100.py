@@ -3,7 +3,7 @@ from ...dao.mariadb import MariaDbDao
 import pandas as pd
 
 
-class DaoSp500(MariaDbDao):
+class DaoNasdaq100(MariaDbDao):
     def __init__(self, engine):
         super().__init__(engine)
 
